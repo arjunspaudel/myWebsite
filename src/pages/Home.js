@@ -10,9 +10,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex items-start justify-center h-screen p-4 overflow-hidden">
-      <div className="text-center text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white mt-16">
-        {quote}
+    <div className="fixed inset-0 flex items-center justify-center p-4">
+      <div className="flex flex-col justify-center h-full -mt-96"> {/* Added this wrapper div */}
+        <div className="text-center text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white max-w-4xl">
+          {quote}
+        </div>
       </div>
     </div>
   );

@@ -15,9 +15,15 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundImage: `url(${hero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <header className="bg-blue-800 text-white flex items-center justify-between p-2 h-10">
-        <img src={logo} alt="Logo" className="h-9" /> {/* Adjusted height to make the logo larger */}
+    <div className="min-h-screen flex flex-col">
+      <div className="fixed inset-0 z-[-1]" style={{ 
+        backgroundImage: `url(${hero})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center 20%', // This crops ~20% from the top
+        backgroundAttachment: 'fixed' // This makes the background fixed
+      }}></div>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-blue-800 text-white flex items-center justify-between p-2 h-10">
+        <img src={logo} alt="Logo" className="h-9" />
         <div className="flex space-x-4">
           <a href="mailto:arjunspaudel@outlook.com" className="flex items-center justify-center w-8 h-8 bg-white text-blue-800 rounded-full hover:bg-orange-500 hover:text-white">
             <FaEnvelope />
@@ -30,7 +36,7 @@ const Layout = ({ children }) => {
           </a>
         </div>
       </header>
-      <nav className="bg-transparent text-white text-center p-1 h-5">
+      <nav className="fixed top-10 left-0 right-0 z-50 bg-transparent text-white text-center p-1 h-5">
         <div className="flex flex-wrap justify-center space-x-4 text-sm md:text-base">
           <NavLink to="/" className={({ isActive }) => isActive ? "text-orange-500" : "hover:text-orange-500"}>Home</NavLink>
           <NavLink to="/education" className={({ isActive }) => isActive ? "text-orange-500" : "hover:text-orange-500"}>Education</NavLink>
@@ -40,10 +46,10 @@ const Layout = ({ children }) => {
           <NavLink to="/about" className={({ isActive }) => isActive ? "text-orange-500" : "hover:text-orange-500"}>About</NavLink>
         </div>
       </nav>
-      <main className="flex-grow p-4 mt-5">
+      <main className="flex-grow p-4 mt-20"> {/* Increased top margin to accommodate fixed header and nav */}
         {children}
       </main>
-      <footer className="text-center text-white">
+      <footer className="text-center text-white p-4">
         © {currentYear} Arjun
       </footer>
     </div>
