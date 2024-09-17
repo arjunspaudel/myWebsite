@@ -3,6 +3,7 @@ import { getBooks, getCurrentlyReading } from '../Services/bookService';
 import { getMovies, getCurrentlyWatching } from '../Services/movieService';
 import BookListDialog from '../components/BookListDialog';
 import MovieListDialog from '../components/MovieListDialog';
+import { Helmet } from 'react-helmet-async';
 
 const interests = [
   {
@@ -42,6 +43,10 @@ const InterestsPage = () => {
   const currentlyWatching = getCurrentlyWatching();
 
   return (
+    <>
+      <Helmet>
+        <title>AP - Interests</title>
+      </Helmet>     
     <div className="p-4">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">My Interests</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -88,6 +93,7 @@ const InterestsPage = () => {
         <MovieListDialog movies={movies} onClose={() => setIsMovieDialogOpen(false)} />
       )}
     </div>
+    </>
   );
 };
 

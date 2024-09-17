@@ -33,7 +33,7 @@ const HiddenPage = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 1.5,
-        speed: Math.random() * speed + 0.1
+        speed: Math.random() * speed + 0.5
       });
     }
 

@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaPlay, FaPause, FaStepBackward, FaStepForward } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 // Dynamically import all images from the 'about' folder
 const importAll = (r) => r.keys().map(r);
@@ -50,6 +51,10 @@ const About = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>AP - About</title>
+      </Helmet>    
     <div className="p-.1 mt-.1 flex flex-col-reverse lg:flex-row">
       <div className="lg:w-1/3 lg:pr-4 mb-8 lg:mb-0">
         <div
@@ -108,6 +113,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

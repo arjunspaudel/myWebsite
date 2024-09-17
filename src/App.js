@@ -10,6 +10,7 @@ import About from './pages/About';
 import HiddenPage from './pages/HiddenPage';
 import './index.css';
 import { ClickProvider, useClickContext } from './contexts/ClickContext';
+import { HelmetProvider } from 'react-helmet-async';
 
 function AppContent() {
   const navigate = useNavigate();
@@ -38,11 +39,13 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
-      <ClickProvider>
-        <AppContent />
-      </ClickProvider>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ClickProvider>
+          <AppContent />
+        </ClickProvider>
+      </Router>
+    </HelmetProvider>
   );
 }
 

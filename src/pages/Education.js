@@ -1,7 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Education = () => {
   return (
+    <>
+      <Helmet>
+        <title>AP - Education</title>
+      </Helmet>     
     <div className="p-4">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Education</h1>
       <div className="grid grid-cols-1 gap-8">
@@ -18,6 +23,7 @@ const Education = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
