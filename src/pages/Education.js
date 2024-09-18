@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { FaGlobe } from 'react-icons/fa';
 
 const Education = () => {
   return (
@@ -13,7 +14,16 @@ const Education = () => {
         <div className="bg-lightOrange p-4 rounded-lg">
           <h2 className="text-2xl font-semibold mb-2">Bachelor's Degree in Mechanical Engineering and Production Technology</h2>
           <p className="text-base md:text-lg lg:text-xl text-justify">
-            Saimaa University of Applied Sciences, Lappeenranta, Finland<br />
+            Saimaa University of Applied Sciences, Lappeenranta, Finland
+            <a 
+              href="https://lab.fi/en" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="ml-2 inline-flex items-center text-blue-800 hover:text-blue-600"
+            >
+              <FaGlobe className="text-xl" />
+            </a>
+            <br />
             September 2015 – February 2019<br />
             GPA: 4.2/5
           </p>

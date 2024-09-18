@@ -50,7 +50,9 @@ const Layout = ({ children }) => {
         backgroundAttachment: 'fixed' // This makes the background fixed
       }}></div>
       <header className="fixed top-0 left-0 right-0 z-50 bg-blue-800 text-white flex items-center justify-between p-2 h-10">
-        <img src={logo} alt="Logo" className="h-9" />
+        <NavLink to="/">
+          <img src={logo} alt="Logo" className="h-9" />
+        </NavLink>
         <div className="flex space-x-4">
           <button
             onClick={() => setIsGameScoreDialogOpen(true)}

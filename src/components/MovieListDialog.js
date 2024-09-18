@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { FaSortUp, FaSortDown } from 'react-icons/fa';
+import { getAllMovies, currentlyWatching } from '../data/movies';
 
-const MovieListDialog = ({ movies, onClose }) => {
+const MovieListDialog = ({ onClose }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
   const sortedMovies = React.useMemo(() => {
-    let sortableMovies = [...movies];
+    let sortableMovies = getAllMovies(); // Use getAllMovies() instead of movies prop
     if (sortConfig.key !== null) {
       sortableMovies.sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
@@ -18,7 +19,7 @@ const MovieListDialog = ({ movies, onClose }) => {
       });
     }
     return sortableMovies;
-  }, [movies, sortConfig]);
+  }, [sortConfig]);
 
   const requestSort = (key) => {
     let direction = 'ascending';
@@ -41,6 +42,21 @@ const MovieListDialog = ({ movies, onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white p-4 rounded-lg w-11/12 md:w-3/4 lg:w-1/2">
         <h2 className="text-2xl font-semibold mb-4">All Movies</h2>
+        
+        {currentlyWatching && (
+          <div className="mb-4 p-2 bg-yellow-100 rounded">
+            <h3 className="font-semibold">Currently Watching:</h3>
+            <a 
+              href={currentlyWatching.wiki} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              {currentlyWatching.title} ({currentlyWatching.year})
+            </a>
+          </div>
+        )}
+
         <table className="min-w-full bg-white">
           <thead>
             <tr>
