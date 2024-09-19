@@ -1,25 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.05c96a0d.css",
-    "main.js": "/static/js/main.444fb764.js",
+    "main.css": "/static/css/main.92fc5a5c.css",
+    "main.js": "/static/js/main.adc5fcc3.js",
     "static/js/453.bb828c5d.chunk.js": "/static/js/453.bb828c5d.chunk.js",
+    "static/media/SOLIDWORKS-design challenge.pdf": "/static/media/SOLIDWORKS-design challenge.19352b2d88582e6a40e8.pdf",
     "static/media/hero.jpg": "/static/media/hero.ca69b447aef6848aea66.jpg",
+    "static/media/Screw Conveyor Final report.pdf": "/static/media/Screw Conveyor Final report.39529423dc442ce77658.pdf",
     "static/media/me4.jpg": "/static/media/me4.7eb5d04339199c00d876.jpg",
     "static/media/me3.jpg": "/static/media/me3.bedffccee34221226e9f.jpg",
-    "static/media/me1.jpg": "/static/media/me1.c3b2facbedeecef7e528.jpg",
     "static/media/me2.jpg": "/static/media/me2.3b140cc753cecccca91e.jpg",
+    "static/media/me1.jpg": "/static/media/me1.a808c4a8bf7d127dcf31.jpg",
+    "static/media/Thesis.pdf": "/static/media/Thesis.3923594cdc2f69655ac7.pdf",
     "static/media/logo.png": "/static/media/logo.84c91fcb1fa7566f1648.png",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.05c96a0d.css.map": "/static/css/main.05c96a0d.css.map",
-    "main.444fb764.js.map": "/static/js/main.444fb764.js.map",
+    "main.92fc5a5c.css.map": "/static/css/main.92fc5a5c.css.map",
+    "main.adc5fcc3.js.map": "/static/js/main.adc5fcc3.js.map",
     "453.bb828c5d.chunk.js.map": "/static/js/453.bb828c5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05c96a0d.css",
-    "static/js/main.444fb764.js"
+    "static/css/main.92fc5a5c.css",
+    "static/js/main.adc5fcc3.js"
   ]
 }
