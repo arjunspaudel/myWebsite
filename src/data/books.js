@@ -1,6 +1,6 @@
 let books = [
   { title: "1984", author: "George Orwell", year: 1949, pageCount: 328, wiki: "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four" },
-  { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, pageCount: 281, wiki: "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird" },
+  { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, pageCount: 285, wiki: "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird" },
   // Add more books here
 ];
 

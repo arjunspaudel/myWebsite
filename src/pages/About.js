@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaPlay, FaPause, FaStepBackward, FaStepForward } from 'react-icons/fa';
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 
 // Dynamically import all images from the 'about' folder
@@ -24,9 +24,9 @@ const About = () => {
     pauseOnHover: true,
     swipe: true,
     touchMove: true,
-    arrows: false, // Remove default arrows
+    arrows: false,
     appendDots: dots => (
-      <div style={{ position: 'absolute', top: '50px', width: '100%' }}>
+      <div style={{ position: 'absolute', top: '40px', width: '100%' }}>
         <ul style={{ margin: '0px' }}> {dots} </ul>
       </div>
     ),
@@ -35,17 +35,23 @@ const About = () => {
   const handleTouchStart = (e) => {
     const touch = e.touches[0];
     sliderRef.current.touchStartX = touch.clientX;
+    sliderRef.current.touchStartY = touch.clientY;
   };
 
   const handleTouchEnd = (e) => {
     const touch = e.changedTouches[0];
     const deltaX = touch.clientX - sliderRef.current.touchStartX;
+    const deltaY = touch.clientY - sliderRef.current.touchStartY;
 
-    if (deltaX > 50) {
-      sliderRef.current.slickPrev();
-    } else if (deltaX < -50) {
-      sliderRef.current.slickNext();
-    } else {
+    // Determine if it's a horizontal swipe
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        sliderRef.current.slickPrev();
+      } else {
+        sliderRef.current.slickNext();
+      }
+    } else if (Math.abs(deltaX) < 10 && Math.abs(deltaY) < 10) {
+      // It's a tap, toggle autoplay
       setAutoplay(!autoplay);
     }
   };
@@ -69,27 +75,24 @@ const About = () => {
               </div>
             ))}
           </Slider>
-          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-            {/* Step Backward Button */}
+          <div className="absolute top-4 left-0 right-0 flex justify-center space-x-4 z-10">
             <button
-              className="bg-white text-black p-2 rounded-full"
+              className="text-white px-2 py-1 hover:bg-black hover:bg-opacity-20 transition-all"
               onClick={() => sliderRef.current.slickPrev()}
             >
-              <FaStepBackward size={24} />
+              <FaChevronLeft size={12} />
             </button>
-            {/* Pause/Play Button */}
             <button
               onClick={() => setAutoplay(!autoplay)}
-              className="bg-white text-black p-2 rounded-full"
+              className="text-white px-2 py-1 hover:bg-black hover:bg-opacity-20 transition-all"
             >
-              {autoplay ? <FaPause size={24} /> : <FaPlay size={24} />}
+              {autoplay ? <FaPause size={12} /> : <FaPlay size={12} />}
             </button>
-            {/* Step Forward Button */}
             <button
-              className="bg-white text-black p-2 rounded-full"
+              className="text-white px-2 py-1 hover:bg-black hover:bg-opacity-20 transition-all"
               onClick={() => sliderRef.current.slickNext()}
             >
-              <FaStepForward size={24} />
+              <FaChevronRight size={12} />
             </button>
           </div>
         </div>
