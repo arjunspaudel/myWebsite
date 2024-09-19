@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.92fc5a5c.css",
-    "main.js": "/static/js/main.adc5fcc3.js",
+    "main.js": "/static/js/main.c3cae3ef.js",
     "static/js/453.bb828c5d.chunk.js": "/static/js/453.bb828c5d.chunk.js",
     "static/media/SOLIDWORKS-design challenge.pdf": "/static/media/SOLIDWORKS-design challenge.19352b2d88582e6a40e8.pdf",
     "static/media/hero.jpg": "/static/media/hero.ca69b447aef6848aea66.jpg",
@@ -18,11 +18,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.92fc5a5c.css.map": "/static/css/main.92fc5a5c.css.map",
-    "main.adc5fcc3.js.map": "/static/js/main.adc5fcc3.js.map",
+    "main.c3cae3ef.js.map": "/static/js/main.c3cae3ef.js.map",
     "453.bb828c5d.chunk.js.map": "/static/js/453.bb828c5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92fc5a5c.css",
-    "static/js/main.adc5fcc3.js"
+    "static/js/main.c3cae3ef.js"
   ]
 }
