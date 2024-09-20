@@ -1,8 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.92fc5a5c.css",
-    "main.js": "/static/js/main.c3cae3ef.js",
-    "static/js/453.bb828c5d.chunk.js": "/static/js/453.bb828c5d.chunk.js",
+    "main.css": "/static/css/main.69605e75.css",
+    "main.js": "/static/js/main.e884536c.js",
+    "static/js/581.d9705891.chunk.js": "/static/js/581.d9705891.chunk.js",
+    "static/js/239.1025e6aa.chunk.js": "/static/js/239.1025e6aa.chunk.js",
+    "static/js/213.27ce720a.chunk.js": "/static/js/213.27ce720a.chunk.js",
+    "static/js/732.0c1e3433.chunk.js": "/static/js/732.0c1e3433.chunk.js",
+    "static/js/453.b03e3c98.chunk.js": "/static/js/453.b03e3c98.chunk.js",
     "static/media/SOLIDWORKS-design challenge.pdf": "/static/media/SOLIDWORKS-design challenge.19352b2d88582e6a40e8.pdf",
     "static/media/hero.jpg": "/static/media/hero.ca69b447aef6848aea66.jpg",
     "static/media/Screw Conveyor Final report.pdf": "/static/media/Screw Conveyor Final report.39529423dc442ce77658.pdf",
@@ -17,12 +21,16 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.92fc5a5c.css.map": "/static/css/main.92fc5a5c.css.map",
-    "main.c3cae3ef.js.map": "/static/js/main.c3cae3ef.js.map",
-    "453.bb828c5d.chunk.js.map": "/static/js/453.bb828c5d.chunk.js.map"
+    "main.69605e75.css.map": "/static/css/main.69605e75.css.map",
+    "main.e884536c.js.map": "/static/js/main.e884536c.js.map",
+    "581.d9705891.chunk.js.map": "/static/js/581.d9705891.chunk.js.map",
+    "239.1025e6aa.chunk.js.map": "/static/js/239.1025e6aa.chunk.js.map",
+    "213.27ce720a.chunk.js.map": "/static/js/213.27ce720a.chunk.js.map",
+    "732.0c1e3433.chunk.js.map": "/static/js/732.0c1e3433.chunk.js.map",
+    "453.b03e3c98.chunk.js.map": "/static/js/453.b03e3c98.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.92fc5a5c.css",
-    "static/js/main.c3cae3ef.js"
+    "static/css/main.69605e75.css",
+    "static/js/main.e884536c.js"
   ]
 }
