@@ -4,6 +4,7 @@ import { getMovies, getCurrentlyWatching } from '../Services/movieService';
 import BookListDialog from '../components/BookListDialog';
 import MovieListDialog from '../components/MovieListDialog';
 import { Helmet } from 'react-helmet-async';
+import { FaTableList } from 'react-icons/fa6';
 
 const interests = [
   {
@@ -30,8 +31,6 @@ const interests = [
     title: "Aspiring Investor",
     description: "I’ve recently begun learning the intricacies of investing in the stock market. The mix of strategy, risk, and reward is captivating, and I’m excited to build my knowledge in this space. Whether it’s analyzing market trends or researching new opportunities, I’m eager to see where this new interest takes me."
   },
-  
-  
 ];
 
 const InterestsPage = () => {
@@ -51,19 +50,28 @@ const InterestsPage = () => {
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">My Interests</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {interests.map((interest, index) => (
-          <div key={index} className="bg-lightOrange p-4 rounded-lg">
+          <div key={index} className="bg-orange-300 p-4 rounded-lg">
             <h2 className="text-2xl font-semibold mb-2">{interest.title}</h2>
             <p className="text-base md:text-lg lg:text-xl text-justify">{interest.description}</p>
           </div>
         ))}
-        <div className="bg-lightOrange p-4 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-2">
-            Books | | currently reading: {currentlyReading.title} |{' '}
-            <button
-              className="text-blue-500 underline"
-              onClick={() => setIsBookDialogOpen(true)}
+        <div className="bg-orange-300 p-4 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-2 flex items-center flex-wrap">
+            Books | | currently reading: 
+            <a 
+              href={currentlyReading.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-800 hover:text-blue-600 ml-1"
             >
-              All lists
+              {currentlyReading.title}
+            </a> |{' '}
+            <button
+              className="text-blue-800 hover:text-blue-600 ml-1"
+              onClick={() => setIsBookDialogOpen(true)}
+              title="View all books"
+            >
+              <FaTableList size={20} />
             </button>
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-justify">
@@ -71,14 +79,23 @@ const InterestsPage = () => {
           </p>
         </div>
 
-        <div className="bg-lightOrange p-4 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-2">
-            Movie & TV Series | | currently watching: {currentlyWatching.title} |{' '}
-            <button
-              className="text-blue-500 underline"
-              onClick={() => setIsMovieDialogOpen(true)}
+        <div className="bg-orange-300 p-4 rounded-lg">
+          <h2 className="text-2xl font-semibold mb-2 flex items-center flex-wrap">
+            Movie & TV Series | | currently watching: 
+            <a 
+              href={currentlyWatching.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-800 hover:text-blue-600 ml-1"
             >
-              All lists
+              {currentlyWatching.title}
+            </a> |{' '}
+            <button
+              className="text-blue-800 hover:text-blue-600 ml-1"
+              onClick={() => setIsMovieDialogOpen(true)}
+              title="View all movies and TV series"
+            >
+              <FaTableList size={20} />
             </button>
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-justify">

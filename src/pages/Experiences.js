@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaGlobe, FaEye, FaDownload } from 'react-icons/fa';
+import { FaArrowUpRightFromSquare, FaBookOpen, FaDownload } from 'react-icons/fa6';
 import ThesisPDF from '../pdf/Thesis.pdf';
 
 const experiences = [
@@ -40,7 +40,7 @@ const ExperiencesPage = () => {
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Experiences</h1>
       <div className="grid grid-cols-1 gap-8">
         {experiences.map((experience, index) => (
-          <div key={index} className="bg-lightOrange p-4 rounded-lg">
+          <div key={index} className="bg-orange-300 p-4 rounded-lg">
             <h2 className="text-2xl font-semibold mb-2">
               {experience.title}
               {experience.thesisPDF && (
@@ -55,7 +55,7 @@ const ExperiencesPage = () => {
                       window.open(experience.thesisPDF, '_blank');
                     }}
                   >
-                    <FaEye className="text-xl" title="View Thesis" />
+                    <FaBookOpen className="text-xl" title="View Thesis" />
                   </a>
                   <a 
                     href={experience.thesisPDF}
@@ -76,15 +76,18 @@ const ExperiencesPage = () => {
                   rel="noopener noreferrer"
                   className="ml-2 inline-flex items-center text-blue-800 hover:text-blue-600"
                 >
-                  <FaGlobe className="text-xl" />
+                  <FaArrowUpRightFromSquare className="text-xl" />
                 </a>
               )}
               <br />
               {experience.period}
             </p>
-            <ul className="list-disc list-inside mt-4">
+            <ul className="list-none mt-4 space-y-4">
               {experience.responsibilities.map((responsibility, idx) => (
-                <li key={idx} className="text-base md:text-lg lg:text-xl text-justify">{responsibility}</li>
+                <li key={idx} className="text-base md:text-lg lg:text-xl text-justify pl-5 relative">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-black rounded-full"></span>
+                  {responsibility}
+                </li>
               ))}
             </ul>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaEye, FaDownload, FaGlobe } from 'react-icons/fa';
+import { FaArrowUpRightFromSquare, FaBookOpen, FaDownload } from 'react-icons/fa6';
 import ScrewConveyorPDF from '../pdf/Screw Conveyor Final report.pdf';
 import SolidWorksPrject from '../pdf/SOLIDWORKS-design challenge.pdf';
 
@@ -58,7 +58,7 @@ const ProjectsPage = () => {
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Projects</h1>
       <div className="grid grid-cols-1 gap-8">
         {projects.map((project, index) => (
-          <div key={index} className="bg-lightOrange p-4 rounded-lg">
+          <div key={index} className="bg-orange-300 p-4 rounded-lg">
             <h2 className="text-2xl font-semibold mb-2">
               {project.title}
               {project.reportPDF && (
@@ -73,8 +73,8 @@ const ProjectsPage = () => {
                       window.open(project.reportPDF, '_blank');
                     }}
                   >
-                    <FaEye className="text-xl" title="View Report" />
-                  </a>
+                    <FaBookOpen className="text-xl" title="View Thesis" />
+                    </a>
                   <a 
                     href={project.reportPDF}
                     download={project.title === "SOLIDWORKS Model Mania®  Challenge" ? "SOLIDWORKS-design challenge.pdf" : "Screw Conveyor Final report.pdf"}
@@ -91,8 +91,8 @@ const ProjectsPage = () => {
                   rel="noopener noreferrer"
                   className="ml-2 inline-flex items-center text-blue-800 hover:text-blue-600"
                 >
-                  <FaGlobe className="text-xl" title="Visit Model Mania Webpage" />
-                </a>
+                  <FaArrowUpRightFromSquare className="text-xl" />
+                  </a>
               )}
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-justify">
@@ -103,9 +103,12 @@ const ProjectsPage = () => {
               )}
               {project.institution}
             </p>
-            <ul className="list-disc list-inside mt-4">
+            <ul className="list-none mt-4 space-y-4">
               {project.details.map((detail, idx) => (
-                <li key={idx} className="text-base md:text-lg lg:text-xl text-justify">{detail}</li>
+                <li key={idx} className="text-base md:text-lg lg:text-xl text-justify pl-5 relative">
+                  <span className="absolute left-0 top-2 w-2 h-2 bg-black rounded-full"></span>
+                  {detail}
+                </li>
               ))}
             </ul>
           </div>

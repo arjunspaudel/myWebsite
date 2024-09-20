@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 
 const GameScoreDialog = ({ isOpen, onClose }) => {
   const [players, setPlayers] = useState(() => {
     const savedPlayers = localStorage.getItem('players');
     return savedPlayers ? JSON.parse(savedPlayers) : [
-      { id: 1, name: 'Player 1', scores: [], isEditing: false },
-      { id: 2, name: 'Player 2', scores: [], isEditing: false },
-      { id: 3, name: 'Player 3', scores: [], isEditing: false },
-      { id: 4, name: 'Player 4', scores: [], isEditing: false },
+      { id: 1, name: 'Player 1', scores: [] },
+      { id: 2, name: 'Player 2', scores: [] },
+      { id: 3, name: 'Player 3', scores: [] },
+      { id: 4, name: 'Player 4', scores: [] },
     ];
   });
   const [rounds, setRounds] = useState(() => {
@@ -43,32 +43,32 @@ const GameScoreDialog = ({ isOpen, onClose }) => {
         newPlayerName = prompt("This name already exists. Please enter a different name:");
         if (!newPlayerName) return; // User cancelled
       }
-      setPlayers([...players, { id: Date.now(), name: newPlayerName, scores: [], isEditing: false }]);
+      setPlayers(prevPlayers => [...prevPlayers, { id: Date.now(), name: newPlayerName, scores: [] }]);
     }
   };
 
   const addRound = () => {
-    setRounds(rounds + 1);
+    setRounds(prevRounds => prevRounds + 1);
   };
 
-  const updateScore = (playerId, roundIndex, score) => {
+  const updateScore = useCallback((playerId, roundIndex, score) => {
     const numericScore = score === '' ? '' : parseFloat(score);
     if (score !== '' && isNaN(numericScore)) return; // Ignore non-numeric input
 
-    const updatedPlayers = players.map(player => {
+    setPlayers(prevPlayers => prevPlayers.map(player => {
       if (player.id === playerId) {
         const newScores = [...player.scores];
         newScores[roundIndex] = numericScore;
         return { ...player, scores: newScores };
       }
       return player;
-    });
-    setPlayers(updatedPlayers);
-  };
+    }));
+  }, []);
 
-  const calculateTotal = (scores) => {
-    return scores.reduce((sum, score) => sum + (score || 0), 0).toFixed(2);
-  };
+  const calculateTotal = useCallback((scores) => {
+    const total = scores.reduce((sum, score) => sum + (score || 0), 0);
+    return Number.isInteger(total) ? total.toString() : total.toFixed(2);
+  }, []);
 
   const startEditingName = (playerId, playerName) => {
     setEditingPlayerId(playerId);
@@ -86,7 +86,7 @@ const GameScoreDialog = ({ isOpen, onClose }) => {
         alert("This name already exists. Please choose a different name.");
         return;
       }
-      setPlayers(players.map(player =>
+      setPlayers(prevPlayers => prevPlayers.map(player =>
         player.id === editingPlayerId ? { ...player, name: newName } : player
       ));
       setEditingPlayerId(null);
@@ -95,17 +95,14 @@ const GameScoreDialog = ({ isOpen, onClose }) => {
   };
 
   const clearScorecard = () => {
-    setPlayers(players.map(player => ({ ...player, scores: [] })));
+    setPlayers(prevPlayers => prevPlayers.map(player => ({ ...player, scores: [] })));
     setRounds(4);
     localStorage.removeItem('players');
     localStorage.removeItem('rounds');
     setShowClearWarning(false);
   };
 
-  useEffect(() => {
-    const sortedPlayers = [...players].sort((a, b) => calculateTotal(b.scores) - calculateTotal(a.scores));
-    setPlayers(sortedPlayers);
-  }, [players]);
+  const sortedPlayers = [...players].sort((a, b) => parseFloat(calculateTotal(b.scores)) - parseFloat(calculateTotal(a.scores)));
 
   if (!isOpen) return null;
 
@@ -124,7 +121,7 @@ const GameScoreDialog = ({ isOpen, onClose }) => {
             </tr>
           </thead>
           <tbody>
-            {players.map(player => (
+            {sortedPlayers.map(player => (
               <tr key={player.id}>
                 <td className="border p-2">
                   {editingPlayerId === player.id ? (

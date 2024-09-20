@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../Images/logo.png';
 import hero from '../Images/hero.jpg';
-import { FaEnvelope, FaLinkedin, FaTwitter, FaGamepad } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaTwitter, FaGamepad, FaFilePdf } from 'react-icons/fa';
 import { useClickContext } from '../contexts/ClickContext';
 import GameScoreDialog from './GameScoreDialog';
+import PDFSignDialog from './PDFSignature'; // Import the new component
 
 const Layout = ({ children }) => {
   const [isGameScoreDialogOpen, setIsGameScoreDialogOpen] = useState(false);
+  const [isPDFSignDialogOpen, setIsPDFSignDialogOpen] = useState(false); // New state
   const [showWarning, setShowWarning] = useState(false);
 
   useEffect(() => {
@@ -55,6 +57,12 @@ const Layout = ({ children }) => {
         </NavLink>
         <div className="flex space-x-4">
           <button
+            onClick={() => setIsPDFSignDialogOpen(true)}
+            className="flex items-center justify-center w-8 h-8 bg-white text-blue-800 rounded-full hover:bg-orange-500 hover:text-white"
+          >
+            <FaFilePdf />
+          </button>
+          <button
             onClick={() => setIsGameScoreDialogOpen(true)}
             className="flex items-center justify-center w-8 h-8 bg-white text-blue-800 rounded-full hover:bg-orange-500 hover:text-white"
           >
@@ -90,6 +98,10 @@ const Layout = ({ children }) => {
       <GameScoreDialog
         isOpen={isGameScoreDialogOpen}
         onClose={() => setIsGameScoreDialogOpen(false)}
+      />
+      <PDFSignDialog
+        isOpen={isPDFSignDialogOpen}
+        onClose={() => setIsPDFSignDialogOpen(false)}
       />
       {showWarning && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

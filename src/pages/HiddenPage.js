@@ -3,6 +3,7 @@ import { useClickContext } from '../contexts/ClickContext';
 import { Navigate } from 'react-router-dom';
 import { getCurrentlyWatching, setCurrentlyWatching, addMovie } from '../Services/movieService';
 import { getCurrentlyReading, setCurrentlyReading, addBook } from '../Services/bookService';
+import PDFSignature from '../components/PDFSignature';
 
 const HiddenPage = () => {
   const { showHiddenPage } = useClickContext();
@@ -13,6 +14,7 @@ const HiddenPage = () => {
   const [stars, setStars] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [showBlackScreen, setShowBlackScreen] = useState(false);
+  const [showPDFSignature, setShowPDFSignature] = useState(false);
 
   useEffect(() => {
     const generateStars = () => {
@@ -120,6 +122,12 @@ const HiddenPage = () => {
           >
             Add to All Books
           </button>
+          <button
+            onClick={() => setShowPDFSignature(true)}
+            className="w-full py-2 rounded border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors"
+          >
+            PDF Signature Tool
+          </button>
         </div>
 
         {(isAddingCurrent || isAddingToAll) && (
@@ -190,6 +198,8 @@ const HiddenPage = () => {
             Cancel
           </button>
         )}
+
+        <PDFSignature isOpen={showPDFSignature} onClose={() => setShowPDFSignature(false)} />
       </div>
     </div>
   );

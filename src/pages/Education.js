@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaGlobe } from 'react-icons/fa';
+import { FaArrowUpRightFromSquare, FaBookOpen, FaDownload } from 'react-icons/fa6';
 
 const Education = () => {
   return (
@@ -11,7 +11,7 @@ const Education = () => {
     <div className="p-4">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Education</h1>
       <div className="grid grid-cols-1 gap-8">
-        <div className="bg-lightOrange p-4 rounded-lg">
+        <div className="bg-orange-300  p-4 rounded-lg">
           <h2 className="text-2xl font-semibold mb-2">Bachelor's Degree in Mechanical Engineering and Production Technology</h2>
           <p className="text-base md:text-lg lg:text-xl text-justify">
             Saimaa University of Applied Sciences, Lappeenranta, Finland
@@ -21,8 +21,8 @@ const Education = () => {
               rel="noopener noreferrer" 
               className="ml-2 inline-flex items-center text-blue-800 hover:text-blue-600"
             >
-              <FaGlobe className="text-xl" />
-            </a>
+                  <FaArrowUpRightFromSquare className="text-xl" />
+                  </a>
             <br />
             September 2015 – February 2019<br />
             GPA: 4.2/5

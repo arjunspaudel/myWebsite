@@ -99,17 +99,17 @@ const About = () => {
       </div>
       <div className="lg:w-2/3 lg:px-16 mb-4 lg:mb-4">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">About me</h1>
-        <div className="bg-lightOrange p-4 rounded-lg mb-4">
+        <div className="bg-orange-300 p-4 rounded-lg mb-4">
           <p className="text-base md:text-lg lg:text-xl text-justify">
             Hi! I'm Arjun, born and raised in the beautiful landscapes of Nepal. At 20, I packed my bags and embarked on a life-changing journey to Finland to pursue a Bachelor's degree in Mechanical Engineering. What started as an academic adventure turned into a deep love for this serene, Nordic country. It was both exciting and challenging, but Finland quickly became my second home.
           </p>
         </div>
-        <div className="bg-lightOrange p-4 rounded-lg mb-4">
+        <div className="bg-orange-300 p-4 rounded-lg mb-4">
           <p className="text-base md:text-lg lg:text-xl text-justify">
             When I'm not tinkering with engineering concepts, you'll find me traveling, camping, and hitting the open road during Finland's endless summer days. Whether it's exploring hidden gems or taking long road trips under the midnight sun, the thrill of discovery keeps me moving.
           </p>
         </div>
-        <div className="bg-lightOrange p-4 rounded-lg">
+        <div className="bg-orange-300 p-4 rounded-lg">
           <p className="text-base md:text-lg lg:text-xl text-justify">
             I'm always ready for the next adventure—whether it's solving an engineering problem or planning my next big trip. Thanks for stopping by and getting to know a bit about me!
           </p>
