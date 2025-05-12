@@ -26,7 +26,7 @@ const GameScoreDialog = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const handleBeforeUnload = (e) => {
-      if (players.some(player => player.scores.some(score => score !== 0))) {
+      if (players.some(player => player.scores.some(score => score >= 0))) {
         e.preventDefault();
         e.returnValue = '';
       }
